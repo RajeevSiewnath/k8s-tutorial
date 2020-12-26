@@ -1,0 +1,18 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: k8s-rajeevsiewnath-com-tls
+spec:
+  secretName: k8s-rajeevsiewnath-com
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: k8s.rajeevsiewnath.com
+  dnsNames:
+    - k8s.rajeevsiewnath.com
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+          - k8s.rajeevsiewnath.com
